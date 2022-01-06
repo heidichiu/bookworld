@@ -1,0 +1,33 @@
+name: Deploy Frontend
+
+on:
+  push:
+    paths:
+      - "frontend/**"
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "frontend"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: npm ci, build and test
+        run: |
+          npm ci
+          npm run build --if-present
+          npm run test:nowatch
+      - name: Deploy to heroku using an action
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "bookworld-api"
+          heroku_email: "heidichiu1025@gmail.com"
+          appdir: "api"
