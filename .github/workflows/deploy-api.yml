@@ -20,7 +20,9 @@ jobs:
           heroku_email: "heidichiu1025@gmail.com"
           appdir: "api"
         env:
+          HD_GRADLE_TASK: "build"
           HD_SPRING.PROFILES.ACTIVE: "prod"
           HD_databaseURL: "jdbc:postgresql://ec2-54-211-74-66.compute-1.amazonaws.com:5432/d2sbtamnmubkj0"
           HD_dbUsername: ${{secrets.dbUsername}}
           HD_dbPassword: ${{secrets.dbPassword}}
+          
