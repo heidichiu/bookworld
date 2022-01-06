@@ -28,6 +28,5 @@ public class BookService {
                 .map(book -> modelMapper.map(book, BookDto.class))
                 .collect(Collectors.toList());
 
-        
     }
 }
