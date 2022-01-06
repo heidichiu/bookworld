@@ -1,0 +1,1 @@
+insert into book(id, title, description, release_year) values ('971d3e6c-f525-49bb-b773-b711ef21a47e', 'test title','Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive.', 1997)
