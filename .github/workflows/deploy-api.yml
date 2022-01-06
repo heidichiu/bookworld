@@ -1,0 +1,21 @@
+name: Deploy API
+
+on:
+  push:
+    paths:
+      - "api/**"
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to heroku using an action
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "bookworld-api"
+          heroku_email: "heidichiu1025@gmail.com"
+          appdir: "api"
