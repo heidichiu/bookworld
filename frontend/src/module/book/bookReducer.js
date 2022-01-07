@@ -1,4 +1,4 @@
-const INITIL_BOOK_REDUCER_STATE = {
+export const INITIL_BOOK_REDUCER_STATE = {
   books: [],
 };
 

@@ -18,7 +18,7 @@ const BookContainer = () => {
   return (
     <Box className={classes.bookContainer}>
       <BookFilter />
-      <Box className={classes.bookList}></Box>
+      <Box className={classes.bookList}>Display all books</Box>
     </Box>
   );
 };
