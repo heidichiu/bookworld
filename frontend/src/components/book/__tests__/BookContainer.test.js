@@ -3,7 +3,7 @@ import renderWithRedux from "../../../util/testUtil";
 import BookContainer from "../BookContainer";
 import BookList from "../BookList";
 
-jest.Mock("../BookList");
+jest.mock("../BookList");
 describe("BookContainer", () => {
   beforeAll(() => {
     BookList.mockImplementation(() => <div>mock booklist component</div>);
