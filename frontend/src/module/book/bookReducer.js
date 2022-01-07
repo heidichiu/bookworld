@@ -1,5 +1,10 @@
 export const INITIL_BOOK_REDUCER_STATE = {
   books: [],
+  promise: {
+    isPending: false,
+    isFulfilled: false,
+    isErrorOccured: false,
+  },
 };
 
 const bookReducer = (state = INITIL_BOOK_REDUCER_STATE, action) => {
@@ -8,6 +13,27 @@ const bookReducer = (state = INITIL_BOOK_REDUCER_STATE, action) => {
       return {
         ...state,
         books: action.payload,
+      };
+    }
+
+    case "BOOKLIST_PENDING": {
+      return {
+        ...state,
+        promise: { isPending: true, isFulfilled: false, isErrorOccured: false },
+      };
+    }
+
+    case "BOOKLIST_ERROR": {
+      return {
+        ...state,
+        promise: { isPending: false, isFulfilled: false, isErrorOccured: true },
+      };
+    }
+
+    case "BOOKLIST_FULFILLED": {
+      return {
+        ...state,
+        promise: { isPending: false, isFulfilled: true, isErrorOccured: false },
       };
     }
 
