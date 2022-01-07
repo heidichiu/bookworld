@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import getBooksAction from "../../module/book/bookAction";
 import { getBooksSelector } from "../../module/book/bookSelector";
 import BookFilter from "./BookFilter";
+import BookList from "./BookList";
 import styles from "./BookStyles";
 
 const BookContainer = () => {
@@ -18,7 +19,9 @@ const BookContainer = () => {
   return (
     <Box className={classes.bookContainer}>
       <BookFilter />
-      <Box className={classes.bookList}>Display all books</Box>
+      <Box className={classes.bookList}>
+        <BookList books={books} />
+      </Box>
     </Box>
   );
 };
