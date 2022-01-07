@@ -19,10 +19,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-      - name: npm ci, build and test
+      - name: npm ci and test
         run: |
           npm ci
-          npm run build --if-present
           npm run test:nowatch
       - name: Deploy to heroku using an action
         uses: akhileshns/heroku-deploy@v3.12.12
