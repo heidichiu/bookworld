@@ -34,14 +34,81 @@ exports[`App component should render app without error 1`] = `
           <div
             class="MuiPaper-root makeStyles-bookFilterPaper-6 MuiPaper-elevation1 MuiPaper-rounded"
           >
-            Book Filter
+            <div
+              class="MuiBox-root MuiBox-root-12"
+            >
+              <h6
+                class="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter"
+              >
+                Search Book Filter
+              </h6>
+              <div
+                class="MuiBox-root MuiBox-root-13"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root"
+                  data-testid="book-title-input"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    data-shrink="false"
+                    for="book-search"
+                    id="book-search-label"
+                  >
+                    Enter book title
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+                  >
+                    <input
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="book-search"
+                      placeholder="Enter book title"
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-14 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-16"
+                      >
+                        <span>
+                          Enter book title
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-flex-end"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    Search
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-12 makeStyles-bookList-7"
+          class="MuiBox-root MuiBox-root-18 makeStyles-bookList-7"
         >
           <div
-            class="MuiBox-root MuiBox-root-13"
+            class="MuiBox-root MuiBox-root-19"
           >
             <span
               class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"

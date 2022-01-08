@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import renderWithRedux from "../../../util/testUtil";
 import BookContainer from "../BookContainer";
 import BookList from "../BookList";
-import getBooksAction from "../../../module/book/bookAction";
+import { getBooksAction } from "../../../module/book/bookAction";
 
 jest.mock("../BookList");
 jest.mock("../../../module/book/bookAction");
