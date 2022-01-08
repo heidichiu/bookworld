@@ -18,6 +18,25 @@ const userReducer = (state = INITIL_BOOK_REDUCER_STATE, action) => {
       };
     }
 
+    case "USER_PENDING": {
+      return {
+        ...state,
+        promise: { isPending: true, isFulfilled: false, isErrorOccured: false },
+      };
+    }
+    case "USER_SUCCESS": {
+      return {
+        ...state,
+        promise: { isPending: false, isFulfilled: true, isErrorOccured: false },
+      };
+    }
+    case "USER_ERROR": {
+      return {
+        ...state,
+        promise: { isPending: false, isFulfilled: false, isErrorOccured: true },
+      };
+    }
+
     default: {
       return state;
     }
