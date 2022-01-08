@@ -1,0 +1,19 @@
+import { makeStyles, createStyles } from "@material-ui/core";
+
+export default makeStyles(() =>
+  createStyles({
+    wrapper: {
+      display: "flex",
+      justifyContent: "center",
+    },
+    paper: {
+      marginTop: "20px",
+      display: "flex",
+      flexDirection: "column",
+      padding: "20px",
+    },
+    topMargin: {
+      marginTop: "2rem",
+    },
+  })
+);
