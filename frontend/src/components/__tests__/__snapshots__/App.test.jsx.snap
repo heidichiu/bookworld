@@ -40,11 +40,15 @@ exports[`App component should render app without error 1`] = `
         <div
           class="MuiBox-root MuiBox-root-12 makeStyles-bookList-7"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
-            data-testid="book-loader"
-            style="width: 80%; height: 200px;"
-          />
+          <div
+            class="MuiBox-root MuiBox-root-13"
+          >
+            <span
+              class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse"
+              data-testid="book-loader"
+              style="width: 80%; height: 200px;"
+            />
+          </div>
         </div>
       </div>
     </div>
