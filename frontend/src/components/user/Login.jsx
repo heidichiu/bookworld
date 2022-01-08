@@ -2,8 +2,11 @@ import { Box, Button, Paper, TextField, Typography } from "@material-ui/core";
 import makeStyle from "./LoginStyle";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../module/user/userAction";
+import { getUserPromise } from "../../module/user/userSelector";
+import { useSnackbar } from "notistack";
+import { useEffect } from "react";
 
 const validationSchema = yup.object({
   email: yup.string("Enter your email").email("Enter a valid email").required("Email is required"),
@@ -16,6 +19,22 @@ const validationSchema = yup.object({
 const Login = () => {
   const classes = makeStyle();
   const dispatch = useDispatch();
+
+  const loginPromise = useSelector(getUserPromise);
+  const { enqueueSnackbar } = useSnackbar();
+
+  useEffect(() => {
+    if (loginPromise.isErrorOccured) {
+      enqueueSnackbar("Username or password wrong!", {
+        variant: "error",
+      });
+    } else if (loginPromise.isFulfilled) {
+      enqueueSnackbar("Successfully logged in", {
+        variant: "success",
+      });
+    }
+  }, [loginPromise, enqueueSnackbar]);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -57,7 +76,13 @@ const Login = () => {
             helperText={formik.touched.password && formik.errors.password}
             error={formik.touched.password && Boolean(formik.errors.password)}
           />
-          <Button className={classes.topMargin} type="submit" variant="contained" color="primary">
+          <Button
+            className={classes.topMargin}
+            disabled={loginPromise.isPending}
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
             Login
           </Button>
         </Paper>
