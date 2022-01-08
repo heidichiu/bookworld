@@ -1,7 +1,6 @@
 import configureStore from "redux-mock-store";
 import reduxThunk from "redux-thunk";
 import axios from "axios";
-import { jsxEmptyExpression } from "@babel/types";
 
 import { getBooksAction, getBooksByTitleAction } from "../bookAction";
 
