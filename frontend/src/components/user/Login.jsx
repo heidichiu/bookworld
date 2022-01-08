@@ -7,6 +7,7 @@ import { loginAction } from "../../module/user/userAction";
 import { getUserPromise } from "../../module/user/userSelector";
 import { useSnackbar } from "notistack";
 import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const validationSchema = yup.object({
   email: yup.string("Enter your email").email("Enter a valid email").required("Email is required"),
@@ -19,6 +20,7 @@ const validationSchema = yup.object({
 const Login = () => {
   const classes = makeStyle();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const loginPromise = useSelector(getUserPromise);
   const { enqueueSnackbar } = useSnackbar();
@@ -32,6 +34,7 @@ const Login = () => {
       enqueueSnackbar("Successfully logged in", {
         variant: "success",
       });
+      history.push("/");
     }
   }, [loginPromise, enqueueSnackbar]);
 

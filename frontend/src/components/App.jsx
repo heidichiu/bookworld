@@ -3,6 +3,7 @@ import BookContainer from "./book/BookContainer";
 import Layout from "./layout/Layout";
 import Login from "./user/Login";
 import { SnackbarProvider } from "notistack";
+import Auth from "./Auth";
 
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
               <Login />
             </Route>
             <Route exact path="/">
-              <BookContainer />
+              <Auth>
+                <BookContainer />
+              </Auth>
             </Route>
           </Switch>
         </Layout>

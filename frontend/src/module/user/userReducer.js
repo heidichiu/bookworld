@@ -1,7 +1,7 @@
 import { INITIL_BOOK_REDUCER_STATE } from "../book/bookReducer";
 
 export const USER_INITIAL_STATE = {
-  token: "",
+  token: window.localStorage.getItem("bookworld-token"),
   promise: {
     isPending: false,
     isFulfilled: false,
