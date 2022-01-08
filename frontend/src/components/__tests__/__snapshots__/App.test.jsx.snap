@@ -99,7 +99,7 @@ exports[`App component should render app without error 1`] = `
                   id="password"
                   name="password"
                   placeholder="Enter password"
-                  type="text"
+                  type="password"
                   value=""
                 />
                 <fieldset

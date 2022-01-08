@@ -70,6 +70,7 @@ const Login = () => {
             className={classes.topMargin}
             name="password"
             id="password"
+            type="password"
             data-testid="password-testid"
             label="Enter password"
             variant="outlined"

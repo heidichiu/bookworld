@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import Login from "./user/Login";
 import { SnackbarProvider } from "notistack";
 import Auth from "./Auth";
+import Register from "./user/Register";
 
 const App = () => {
   return (
@@ -13,6 +14,9 @@ const App = () => {
           <Switch>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
             </Route>
             <Route exact path="/">
               <Auth>
