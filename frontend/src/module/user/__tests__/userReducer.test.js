@@ -14,4 +14,26 @@ describe("User Reducer", () => {
       token: "jwt token",
     });
   });
+
+  it("should return new state for register user action", () => {
+    const newState = userReducer(USER_INITIAL_STATE, {
+      type: "USER_REGISTER",
+      payload: {
+        id: "id",
+        name: "name",
+        email: "email@email.com",
+        password: "password",
+      },
+    });
+
+    expect(newState).toEqual({
+      ...USER_INITIAL_STATE,
+      user: {
+        id: "id",
+        name: "name",
+        email: "email@email.com",
+        password: "password",
+      },
+    });
+  });
 });
