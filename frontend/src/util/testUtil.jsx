@@ -3,11 +3,16 @@ import { Provider } from "react-redux";
 import { render } from "@testing-library/react";
 import reduxThunk from "redux-thunk";
 import reducers from "../module/reducers";
+import { SnackbarProvider } from "notistack";
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 const renderWithRedux = (ui, { initialState, store = createStoreWithMiddleware(reducers, initialState) }) => ({
-  ...render(<Provider store={store}>{ui}</Provider>),
+  ...render(
+    <Provider store={store}>
+      <SnackbarProvider maxSnack={3}>{ui}</SnackbarProvider>
+    </Provider>
+  ),
 });
 
 export default renderWithRedux;
