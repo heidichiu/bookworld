@@ -1,5 +1,6 @@
 export const USER_INITIAL_STATE = {
   token: window.localStorage.getItem("bookworld-token"),
+  user: null,
   promise: {
     isPending: false,
     isFulfilled: false,
@@ -10,7 +11,7 @@ export const USER_INITIAL_STATE = {
     isFulfilled: false,
     isErrorOccured: false,
   },
-  user: null,
+  userRegistered: null,
 };
 
 const userReducer = (state = USER_INITIAL_STATE, action) => {
@@ -19,6 +20,7 @@ const userReducer = (state = USER_INITIAL_STATE, action) => {
       return {
         ...state,
         token: action.payload.token,
+        user: action.payload.user,
       };
     }
 
@@ -52,7 +54,7 @@ const userReducer = (state = USER_INITIAL_STATE, action) => {
     case "USER_REGISTER": {
       return {
         ...state,
-        user: action.payload,
+        userRegistered: action.payload,
       };
     }
 

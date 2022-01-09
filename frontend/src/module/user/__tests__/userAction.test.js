@@ -13,6 +13,11 @@ describe("login action", () => {
       return Promise.resolve({
         data: {
           token: "mock jwt token",
+          user: {
+            id: "50704da4-13bb-4fad-adbc-04d4ef22653a",
+            name: "peter",
+            email: "peter@gmail.com",
+          },
         },
       });
     });
@@ -28,8 +33,14 @@ describe("login action", () => {
       type: "USER_LOGIN",
       payload: {
         token: "mock jwt token",
+        user: {
+          id: "50704da4-13bb-4fad-adbc-04d4ef22653a",
+          name: "peter",
+          email: "peter@gmail.com",
+        },
       },
     });
+    expect(window.localStorage.getItem("bookworld-token")).toEqual("mock jwt token");
   });
 
   it("should dispatch register action", async () => {

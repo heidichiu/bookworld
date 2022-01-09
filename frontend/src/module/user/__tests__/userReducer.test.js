@@ -6,12 +6,22 @@ describe("User Reducer", () => {
       type: "USER_LOGIN",
       payload: {
         token: "jwt token",
+        user: {
+          id: "50704da4-13bb-4fad-adbc-04d4ef22653a",
+          name: "peter",
+          email: "peter@gmail.com",
+        },
       },
     });
 
     expect(newState).toEqual({
       ...USER_INITIAL_STATE,
       token: "jwt token",
+      user: {
+        id: "50704da4-13bb-4fad-adbc-04d4ef22653a",
+        name: "peter",
+        email: "peter@gmail.com",
+      },
     });
   });
 
@@ -28,7 +38,7 @@ describe("User Reducer", () => {
 
     expect(newState).toEqual({
       ...USER_INITIAL_STATE,
-      user: {
+      userRegistered: {
         id: "id",
         name: "name",
         email: "email@email.com",

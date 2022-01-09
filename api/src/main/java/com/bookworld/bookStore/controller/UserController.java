@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Validated
@@ -47,9 +49,11 @@ public class UserController {
         }
 
         UserDetails userDetails = userDetailService.loadUserByUsername(request.getEmail());
+        UserDto userByEmail = userService.getUserByEmail(request.getEmail());
         String token = jwtUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new AuthenticationResponse("Bearer " + token));
+
+        return ResponseEntity.ok(new AuthenticationResponse(userByEmail, "Bearer " + token));
     }
 
     @PostMapping("/register")
