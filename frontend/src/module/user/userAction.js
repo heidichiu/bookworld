@@ -20,6 +20,9 @@ export const loginAction = (email, password) => async (dispatch) => {
 };
 
 export const logoutAction = () => (dispatch) => {
+  window.localStorage.removeItem("bookworld-token");
+  window.localStorage.removeItem("bookworld-user");
+
   dispatch({ type: "USER_LOGOUT" });
 };
 

@@ -81,11 +81,15 @@ describe("login action", () => {
   });
 
   it("should dispatch logout action", () => {
+    window.localStorage.setItem("bookworld-token", "token");
+    window.localStorage.setItem("bookworld-user", "user");
     const store = mockStore({});
     store.dispatch(logoutAction());
     const actions = store.getActions();
     expect(actions.length).toEqual(1);
 
     expect(actions[0]).toEqual({ type: "USER_LOGOUT" });
+    expect(window.localStorage.getItem("bookworld-token")).toBeNull();
+    expect(window.localStorage.getItem("bookworld-user")).toBeNull();
   });
 });

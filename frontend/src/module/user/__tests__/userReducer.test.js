@@ -74,6 +74,7 @@ describe("User Reducer", () => {
     expect(newState).toEqual({
       ...loginState,
       user: null,
+      token: null,
     });
   });
 });
