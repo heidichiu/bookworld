@@ -1,2 +1,4 @@
 export const getBooksSelector = (rootReducer) => rootReducer.bookReducer.books;
-export const getBookPromiseSelector = (rootReducer) => rootReducer.bookReducer.promise;
+export const getBookSelector = (rootReducer) => rootReducer.bookReducer.book;
+export const getSingleBookPromiseSelector = (rootReducer) => rootReducer.bookReducer.bookPromise;
+export const getBookListPromiseSelector = (rootReducer) => rootReducer.bookReducer.promise;

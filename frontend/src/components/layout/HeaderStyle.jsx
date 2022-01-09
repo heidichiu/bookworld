@@ -20,5 +20,9 @@ export default makeStyles(() =>
       justifyContent: "center",
       marginRight: "10px",
     },
+    headerTitle: {
+      textDecoration: "none",
+      color: "inherit",
+    },
   })
 );

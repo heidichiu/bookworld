@@ -1,5 +1,6 @@
 import { Avatar, Box, Paper, Typography } from "@material-ui/core";
 import Proptypes from "prop-types";
+import { Link } from "react-router-dom";
 import makeStyles from "./BookStyles";
 
 const propTypes = {
@@ -20,7 +21,11 @@ const BookListItem = ({ book }) => {
           {book.title}
         </Avatar>
         <Box ml={1}>
-          <Typography variant="h5">{book.title}</Typography>
+          <Typography variant="h5">
+            <Link className={classes.bookLink} to={`books/${book.id}`}>
+              {book.title}
+            </Link>
+          </Typography>
           <Typography>{book.description}</Typography>
           <Typography>{book.releaseYear}</Typography>
         </Box>

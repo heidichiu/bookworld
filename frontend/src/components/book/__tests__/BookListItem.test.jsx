@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import renderWithRedux from "../../../util/testUtil";
 import BookListItem from "../BookListItem";
 
 describe("BookListItem", () => {
@@ -9,7 +10,7 @@ describe("BookListItem", () => {
       description: "desc",
       releaseYear: 2020,
     };
-    render(<BookListItem book={book} />);
+    renderWithRedux(<BookListItem book={book} />);
     expect(screen.getAllByText("test title")[0]).toBeInTheDocument();
     expect(screen.getByText("desc")).toBeInTheDocument();
     expect(screen.getByText("2020")).toBeInTheDocument();

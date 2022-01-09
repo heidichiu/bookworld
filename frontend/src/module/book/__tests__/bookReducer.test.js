@@ -17,6 +17,7 @@ describe("bookReducer", () => {
     const newState = bookReducer(INITIL_BOOK_REDUCER_STATE, action);
 
     expect(newState).toEqual({
+      ...INITIL_BOOK_REDUCER_STATE,
       books: [
         {
           id: 1,
@@ -45,6 +46,7 @@ describe("bookReducer", () => {
     const newState = bookReducer(INITIL_BOOK_REDUCER_STATE, action);
 
     expect(newState).toEqual({
+      ...INITIL_BOOK_REDUCER_STATE,
       books: [
         {
           id: "2",
@@ -54,6 +56,30 @@ describe("bookReducer", () => {
         },
       ],
       promise: { isPending: false, isFulfilled: false, isErrorOccured: false },
+    });
+  });
+
+  it("should return correct new state for GET_BOOK Action", () => {
+    const action = {
+      type: "GET_BOOK",
+      payload: {
+        id: "2",
+        title: "second book",
+        description: "des",
+        releaseYear: 2018,
+      },
+    };
+
+    const newState = bookReducer(INITIL_BOOK_REDUCER_STATE, action);
+
+    expect(newState).toEqual({
+      ...INITIL_BOOK_REDUCER_STATE,
+      book: {
+        id: "2",
+        title: "second book",
+        description: "des",
+        releaseYear: 2018,
+      },
     });
   });
 });

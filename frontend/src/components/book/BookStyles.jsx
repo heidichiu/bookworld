@@ -8,15 +8,16 @@ export default makeStyles(() =>
       flexDirection: "row",
     },
     bookFilter: {
-      width: "20%",
+      marginLeft: "50px",
       height: "500px",
+      flex: 2,
     },
     bookFilterPaper: {
       width: "100%",
       height: "100%",
     },
     bookList: {
-      width: "80%",
+      flex: 8,
     },
     bookListItemPaper: {
       padding: "10px",
@@ -26,6 +27,10 @@ export default makeStyles(() =>
     bookImage: {
       width: "180px!important",
       height: "200px!important",
+    },
+    bookLink: {
+      color: "inherit",
+      textDecoration: "none",
     },
   })
 );

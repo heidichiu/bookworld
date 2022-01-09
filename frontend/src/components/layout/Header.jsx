@@ -1,6 +1,7 @@
 import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { logoutAction } from "../../module/user/userAction";
 import { getUser } from "../../module/user/userSelector";
 import styles from "./HeaderStyle";
@@ -16,7 +17,9 @@ const Header = () => {
     <AppBar position="fixed">
       <Toolbar variant="dense" className={classes.flex}>
         <Typography variant="h6" color="inherit" className={classes.leftCorner}>
-          Book World
+          <Link className={classes.headerTitle} to="/">
+            Book World
+          </Link>
         </Typography>
         {user && (
           <div className={classes.rightContainer}>

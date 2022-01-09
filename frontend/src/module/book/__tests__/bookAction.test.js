@@ -2,14 +2,14 @@ import configureStore from "redux-mock-store";
 import reduxThunk from "redux-thunk";
 import axios from "axios";
 
-import { getBooksAction, getBooksByTitleAction } from "../bookAction";
+import { getBookAction, getBooksAction, getBooksByTitleAction } from "../bookAction";
 
 jest.mock("axios");
 const middleware = [reduxThunk];
 const mockStore = configureStore(middleware);
 
 describe("Book", () => {
-  beforeEach(() => {
+  const mockAxiosGetBookList = () =>
     axios.get.mockImplementation(() =>
       Promise.resolve({
         data: [
@@ -22,10 +22,10 @@ describe("Book", () => {
         ],
       })
     );
-  });
 
   it("should able to dispatch success getbooks action", async () => {
     const store = mockStore({});
+    mockAxiosGetBookList();
     await store.dispatch(getBooksAction());
     const actions = store.getActions();
     expect(actions.length).toEqual(3);
@@ -44,6 +44,7 @@ describe("Book", () => {
 
   it("should able to dispatch getbookbytitle action", async () => {
     const store = mockStore({});
+    mockAxiosGetBookList();
     await store.dispatch(getBooksByTitleAction("test title"));
     const actions = store.getActions();
 
@@ -58,6 +59,35 @@ describe("Book", () => {
           releaseYear: 2021,
         },
       ],
+    });
+  });
+
+  it("should able to dispatch getBook action", async () => {
+    const store = mockStore({});
+
+    axios.get.mockImplementation(() =>
+      Promise.resolve({
+        data: {
+          id: "1",
+          title: "test title",
+          description: "test description",
+          releaseYear: 2021,
+        },
+      })
+    );
+
+    await store.dispatch(getBookAction("bookId"));
+    const actions = store.getActions();
+
+    expect(actions.length).toEqual(3);
+    expect(actions[1]).toEqual({
+      type: "GET_BOOK",
+      payload: {
+        id: "1",
+        title: "test title",
+        description: "test description",
+        releaseYear: 2021,
+      },
     });
   });
 

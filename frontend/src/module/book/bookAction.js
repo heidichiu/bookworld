@@ -1,4 +1,4 @@
-import { getBooksService, getBooksByTitleService } from "./bookService";
+import { getBooksService, getBooksByTitleService, getBookService } from "./bookService";
 
 export const getBooksByTitleAction = (title) => async (dispatch) => {
   try {
@@ -23,5 +23,20 @@ export const getBooksAction = () => async (dispatch) => {
     dispatch({ type: "BOOKLIST_FULFILLED" });
   } catch (error) {
     dispatch({ type: "BOOKLIST_ERROR" });
+  }
+};
+
+export const getBookAction = (bookId) => async (dispatch) => {
+  try {
+    dispatch({ type: "BOOK_PENDING" });
+
+    const book = await getBookService(bookId);
+    dispatch({
+      type: "GET_BOOK",
+      payload: book.data,
+    });
+    dispatch({ type: "BOOK_FULFILLED" });
+  } catch (error) {
+    dispatch({ type: "BOOK_ERROR" });
   }
 };

@@ -12,9 +12,7 @@ const Layout = ({ children }) => {
       <Box>
         <Header />
       </Box>
-      <Box mt={8} ml={5}>
-        {children}
-      </Box>
+      <Box mt={8}>{children}</Box>
     </Box>
   );
 };
