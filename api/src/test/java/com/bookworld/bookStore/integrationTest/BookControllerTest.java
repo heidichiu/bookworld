@@ -64,7 +64,7 @@ public class BookControllerTest {
     @Sql(scripts = {"classpath:InsertInitialBookRecordsForTest.sql"})
     void shouldReturnOneBookWhenCalledWithTestTitle() {
         setUpHeader();
-        BookDto[] booksDto = testRestTemplate.getForObject("http://localhost:" + port + "/api/v1/books/test Title", BookDto[].class);
+        BookDto[] booksDto = testRestTemplate.getForObject("http://localhost:" + port + "/api/v1/books?title=test Title", BookDto[].class);
         assertThat(booksDto).isNotNull();
         assertThat(booksDto.length).isEqualTo(1);
 

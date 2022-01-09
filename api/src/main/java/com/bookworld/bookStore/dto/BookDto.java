@@ -8,8 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -60,4 +59,7 @@ public class BookDto {
     )
     @JsonProperty
     private int releaseYear;
+
+
+    private List<BookReviewDto> bookReviews;
 }

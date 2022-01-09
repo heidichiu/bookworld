@@ -1,6 +1,7 @@
 package com.bookworld.bookStore.service;
 
 import com.bookworld.bookStore.dto.BookReviewDto;
+import com.bookworld.bookStore.dto.UserDto;
 import com.bookworld.bookStore.model.Book;
 import com.bookworld.bookStore.model.BookReview;
 import com.bookworld.bookStore.model.User;
@@ -33,7 +34,7 @@ public class BookReviewService {
     public BookReviewDto addBookReviewToBookByUser(BookReviewDto bookReviewDto, UUID bookId, String userEmail) {
         User user = userRepository.findUserByEmail(userEmail);
         bookReviewDto.setBookId(bookId);
-        bookReviewDto.setUserId(user.getId());
+        bookReviewDto.setUser(modelMapper.map(user, UserDto.class));
         BookReview bookReview = modelMapper.map(bookReviewDto, BookReview.class);
         BookReview savedReview = bookReviewRepository.saveAndFlush(bookReview);
 

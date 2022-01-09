@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Api(value = "Book Api", tags = "Book Api", produces = "application/json")
 @RestController
@@ -29,14 +31,20 @@ public class BookController {
             @ApiResponse(code = 404, message = "The resource is not found")
     })
     @GetMapping
-    public ResponseEntity<List<BookDto>> getBooks() {
-        List<BookDto> books = bookService.getBooks();
+    public ResponseEntity<List<BookDto>> getBooks(@RequestParam("title") Optional<String> title) {
+        List<BookDto> books;
+        if (title.isPresent()) {
+            List<BookDto> booksByTitle = bookService.getBooksByTitle(title.get());
+            return ResponseEntity.ok(booksByTitle);
+        }
+
+        books = bookService.getBooks();
         return ResponseEntity.ok(books);
     }
 
-    @GetMapping("/{title}")
-    public ResponseEntity<List<BookDto>> getBooksByTitle(@PathVariable("title") String title) {
-        List<BookDto> booksByTitle = bookService.getBooksByTitle(title);
-        return ResponseEntity.ok(booksByTitle);
+    @GetMapping("/{id}")
+    public ResponseEntity<BookDto> getBookById(@PathVariable("id") String id) {
+        BookDto book = bookService.getBookById(UUID.fromString(id));
+        return ResponseEntity.ok(book);
     }
 }

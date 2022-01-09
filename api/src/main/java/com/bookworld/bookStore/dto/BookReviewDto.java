@@ -27,5 +27,5 @@ public class BookReviewDto implements Serializable {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private UUID bookId;
-    private UUID userId;
+    private UserDto user;
 }

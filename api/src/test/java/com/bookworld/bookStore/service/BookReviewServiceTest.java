@@ -1,6 +1,7 @@
 package com.bookworld.bookStore.service;
 
 import com.bookworld.bookStore.dto.BookReviewDto;
+import com.bookworld.bookStore.dto.UserDto;
 import com.bookworld.bookStore.model.Book;
 import com.bookworld.bookStore.model.BookReview;
 import com.bookworld.bookStore.model.User;
@@ -51,7 +52,7 @@ public class BookReviewServiceTest {
         bookReviewService.addBookReviewToBookByUser(reviewDto, bookId, "userEmail");
 
 
-        reviewDto.setUserId(uuid);
+        reviewDto.setUser(UserDto.builder().id(uuid).build());
         reviewDto.setBookId(bookId);
         ArgumentCaptor<BookReview> argument = ArgumentCaptor.forClass(BookReview.class);
         verify(bookReviewRepository).saveAndFlush(argument.capture());

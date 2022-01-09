@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.anyString;
@@ -35,7 +36,7 @@ public class BookControllerTest {
         bookDtos.add(getBookDto());
         when(bookService.getBooks()).thenReturn(bookDtos);
 
-        ResponseEntity<List<BookDto>> books = bookController.getBooks();
+        ResponseEntity<List<BookDto>> books = bookController.getBooks(Optional.empty());
         assertThat(books.getBody()).isNotNull();
         assertThat(books.getBody().size()).isEqualTo(1);
     }
@@ -47,7 +48,7 @@ public class BookControllerTest {
         bookDtos.add(getBookDto());
         when(bookService.getBooksByTitle(anyString())).thenReturn(bookDtos);
 
-        ResponseEntity<List<BookDto>> books = bookController.getBooksByTitle("test title");
+        ResponseEntity<List<BookDto>> books = bookController.getBooks(java.util.Optional.of("test title"));
         assertThat(books.getBody()).isNotNull();
         assertThat(books.getBody().size()).isEqualTo(1);
     }

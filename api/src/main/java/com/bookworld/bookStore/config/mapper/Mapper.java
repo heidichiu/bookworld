@@ -1,4 +1,4 @@
-package com.bookworld.bookStore.config;
+package com.bookworld.bookStore.config.mapper;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +9,8 @@ public class Mapper {
 
     @Bean
     public ModelMapper modelMapper() {
-        return new ModelMapper();
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.addMappings(new BookToBookDtoMap());
+        return modelMapper;
     }
 }

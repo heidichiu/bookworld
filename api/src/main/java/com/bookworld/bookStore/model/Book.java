@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 import javax.validation.constraints.NotNull;
 
@@ -34,5 +34,5 @@ public class Book {
     private int releaseYear;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    Set<BookReview> bookReviews;
+    List<BookReview> bookReviews;
 }
