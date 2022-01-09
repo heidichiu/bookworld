@@ -1,6 +1,6 @@
 const environmentUrls = new Map();
 
 environmentUrls.set("localhost", "http://localhost:8080");
-environmentUrls.set("bookworld-client.herokuapp.com", "https://bookworld-api.herokuapp.com/");
+environmentUrls.set("bookworld-client.herokuapp.com", "https://bookworld-api.herokuapp.com");
 
 export default environmentUrls.get(window.location.hostname);
