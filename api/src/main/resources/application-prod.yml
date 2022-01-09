@@ -1,3 +1,4 @@
+jwt-token-secret-key: ${jwtTokenSecretKey}
 spring:
   datasource:
     url: ${databaseURL}
