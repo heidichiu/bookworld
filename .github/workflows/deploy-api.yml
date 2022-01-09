@@ -1,4 +1,4 @@
-name: Deploy API
+name: API Build
 
 on:
   push:
@@ -25,4 +25,3 @@ jobs:
           HD_databaseURL: "jdbc:postgresql://ec2-54-211-74-66.compute-1.amazonaws.com:5432/d2sbtamnmubkj0"
           HD_dbUsername: ${{secrets.dbUsername}}
           HD_dbPassword: ${{secrets.dbPassword}}
-          
