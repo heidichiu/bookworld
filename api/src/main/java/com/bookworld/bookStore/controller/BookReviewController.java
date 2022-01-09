@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,15 +26,15 @@ public class BookReviewController {
     }
 
     @PostMapping("books/{bookId}/book-reviews")
-    public ResponseEntity<BookReviewDto> postReview(@RequestHeader("Authorization") String token, @PathVariable String bookId, @RequestBody BookReviewDto bookReviewDto) {
+    public ResponseEntity<BookReviewDto> postReview(@RequestHeader("Authorization") String token, @PathVariable String bookId, @RequestBody @Valid BookReviewDto bookReviewDto) {
         String username = jwtUtil.extractUserEmailFromToken(token);
-        BookReviewDto reviewDto = bookReviewService.addBookReviewToBookByUser(bookReviewDto, bookId, username );
+        BookReviewDto reviewDto = bookReviewService.addBookReviewToBookByUser(bookReviewDto, bookId, username);
         return ResponseEntity.status(HttpStatus.CREATED).body(reviewDto);
     }
 
     @GetMapping("books/{bookId}/book-reviews")
     public ResponseEntity<List<BookReviewDto>> getReviews(@PathVariable String bookId) {
 
-        return ResponseEntity.ok(bookReviewService.getBookReviewsByBook(UUID.fromString(bookId)));
+        return ResponseEntity.ok(bookReviewService.getBookReviewsByBookId(UUID.fromString(bookId)));
     }
 }

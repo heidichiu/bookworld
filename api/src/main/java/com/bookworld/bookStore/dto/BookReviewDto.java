@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -21,11 +22,10 @@ public class BookReviewDto implements Serializable {
     @NotNull
     private String content;
     @NotNull
+    @Max(10)
     private String score;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    @NotNull
     private UUID bookId;
-    @NotNull
     private UUID userId;
 }

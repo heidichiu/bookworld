@@ -45,9 +45,9 @@ public class BookReviewService {
         return addBookReviewToBookByUser(bookReviewDto, UUID.fromString(bookId), userEmail);
     }
 
-    public List<BookReviewDto> getBookReviewsByBook(UUID bookId) {
+    public List<BookReviewDto> getBookReviewsByBookId(UUID bookId) {
         Book book = bookRepository.findBookById(bookId);
-        List<BookReview> bookReviews = bookReviewRepository.findByBook(book);
+        List<BookReview> bookReviews = bookReviewRepository.findReviewsByBook(book);
 
         return bookReviews.stream()
                 .map(review -> modelMapper.map(review, BookReviewDto.class))

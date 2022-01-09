@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface BookReviewRepository extends JpaRepository<BookReview, UUID> {
     @Query("select b from BookReview b where b.book = ?1")
-    List<BookReview> findByBook(Book book);
+    List<BookReview> findReviewsByBook(Book book);
 
 
 }
