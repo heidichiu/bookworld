@@ -49,4 +49,12 @@ public class JwtUtil {
     private Claims extractClaims(String token) {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
+
+    public String extractUserEmailFromToken(String token) {
+        return Jwts.parser()
+                .setSigningKey(SECRET_KEY)
+                .parseClaimsJws(token.replace("Bearer ", ""))
+                .getBody()
+                .getSubject();
+    }
 }

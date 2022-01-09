@@ -35,7 +35,7 @@ public class UserService {
     }
 
     public UserDto getUserByEmail(String email) {
-        User byEmail = userRepository.findByEmail(email);
+        User byEmail = userRepository.findUserByEmail(email);
         if (Objects.isNull(byEmail)) {
             throw new RuntimeException("User does not exist " + email);
         }

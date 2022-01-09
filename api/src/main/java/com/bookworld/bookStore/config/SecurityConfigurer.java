@@ -69,7 +69,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests().antMatchers("/api/v1/login").permitAll()
                 .antMatchers("/api/v1/register").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated();
+        http.headers().frameOptions().disable();
     }
 
     @Bean

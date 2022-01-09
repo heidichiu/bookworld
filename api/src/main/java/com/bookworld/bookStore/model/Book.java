@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 import java.util.UUID;
 import javax.validation.constraints.NotNull;
 
@@ -31,4 +32,7 @@ public class Book {
     @Column
     @NotNull
     private int releaseYear;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    Set<BookReview> bookReviews;
 }

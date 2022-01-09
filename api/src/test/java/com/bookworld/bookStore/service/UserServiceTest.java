@@ -11,11 +11,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.List;
 import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -53,7 +51,7 @@ class UserServiceTest {
     @Test
     public void shouldReturnUserWhenEmailExists() {
         UUID id = UUID.randomUUID();
-        when(userRepository.findByEmail(anyString())).thenReturn(getUser(id));
+        when(userRepository.findUserByEmail(anyString())).thenReturn(getUser(id));
         when(modelMapper.map(any(), any())).thenReturn(getUserDto());
 
         UserDto email = userService.getUserByEmail("email");
@@ -65,7 +63,7 @@ class UserServiceTest {
     @Test
     public void shouldThrowErrorWhenEmailNotExists() {
         UUID id = UUID.randomUUID();
-        when(userRepository.findByEmail(anyString())).thenThrow(new RuntimeException("error"));
+        when(userRepository.findUserByEmail(anyString())).thenThrow(new RuntimeException("error"));
 
         assertThatThrownBy(()->userService.getUserByEmail("email")).isInstanceOf(RuntimeException.class);
     }
