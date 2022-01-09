@@ -54,6 +54,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                             "GET", "POST", "PUT", "DELETE", "OPTIONS"
                     ));
                     corsConfiguration.setAllowedHeaders(Collections.singletonList("*"));
+                    corsConfiguration.addAllowedOrigin("*");
+                    corsConfiguration.addAllowedHeader("*");
+                    corsConfiguration.addAllowedMethod("*");
                     return corsConfiguration;
                 }).and()
                 .sessionManagement()
