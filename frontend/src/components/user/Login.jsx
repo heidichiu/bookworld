@@ -1,4 +1,4 @@
-import { Box, Button, Paper, TextField, Typography } from "@material-ui/core";
+import { Box, Button, Paper, TextField, Typography, Link } from "@material-ui/core";
 import makeStyle from "./LoginStyle";
 import * as yup from "yup";
 import { useFormik } from "formik";
@@ -36,7 +36,7 @@ const Login = () => {
       });
       history.push("/");
     }
-  }, [loginPromise, enqueueSnackbar]);
+  }, [loginPromise, enqueueSnackbar, history]);
 
   const formik = useFormik({
     initialValues: {
@@ -48,6 +48,10 @@ const Login = () => {
       dispatch(loginAction(values.email, values.password));
     },
   });
+
+  const handleRegister = () => {
+    history.push("/register");
+  };
   return (
     <form autoComplete="off" noValidate onSubmit={formik.handleSubmit}>
       <Box className={classes.wrapper}>
@@ -89,6 +93,9 @@ const Login = () => {
           >
             Login
           </Button>
+          <Link component="button" variant="body2" onClick={handleRegister} className={classes.topMargin}>
+            Register
+          </Link>
         </Paper>
       </Box>
     </form>

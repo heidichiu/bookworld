@@ -29,7 +29,7 @@ describe("Login test", () => {
     expect(await screen.findByText("Password should be of minimum 8 character length")).toBeInTheDocument();
   });
 
-  it("should call login action when  email and password is valid", async () => {
+  it("should call login action when email and password is valid", async () => {
     loginAction.mockImplementation(() => (dispatch) => {});
     renderWithRedux(<Login />, {});
     const submitBtn = await screen.findAllByText("Login");

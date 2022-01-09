@@ -1,5 +1,3 @@
-import { INITIL_BOOK_REDUCER_STATE } from "../book/bookReducer";
-
 export const USER_INITIAL_STATE = {
   token: window.localStorage.getItem("bookworld-token"),
   promise: {
@@ -15,7 +13,7 @@ export const USER_INITIAL_STATE = {
   user: null,
 };
 
-const userReducer = (state = INITIL_BOOK_REDUCER_STATE, action) => {
+const userReducer = (state = USER_INITIAL_STATE, action) => {
   switch (action.type) {
     case "USER_LOGIN": {
       return {
@@ -44,6 +42,13 @@ const userReducer = (state = INITIL_BOOK_REDUCER_STATE, action) => {
     }
 
     // register action
+    case "RESET_REGISTER_PROMISE": {
+      return {
+        ...state,
+        registerPromise: { isPending: false, isFulfilled: false, isErrorOccured: false },
+      };
+    }
+
     case "USER_REGISTER": {
       return {
         ...state,

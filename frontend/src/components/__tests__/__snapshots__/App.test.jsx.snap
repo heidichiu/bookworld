@@ -130,6 +130,11 @@ exports[`App component should render app without error 1`] = `
                 class="MuiTouchRipple-root"
               />
             </button>
+            <button
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-topMargin-21 MuiLink-button MuiTypography-body2 MuiTypography-colorPrimary"
+            >
+              Register
+            </button>
           </div>
         </div>
       </form>

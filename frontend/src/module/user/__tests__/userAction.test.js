@@ -1,7 +1,7 @@
 import configureStore from "redux-mock-store";
 import reduxThunk from "redux-thunk";
 import axios from "axios";
-import { loginAction, registerAction } from "../userAction";
+import { loginAction, registerAction, resetRegisterPromiseAction } from "../userAction";
 
 jest.mock("axios");
 const middleware = [reduxThunk];
@@ -58,5 +58,14 @@ describe("login action", () => {
         password: "password",
       },
     });
+  });
+
+  it("should dispatch reset register action", () => {
+    const store = mockStore({});
+    store.dispatch(resetRegisterPromiseAction());
+    const actions = store.getActions();
+    expect(actions.length).toEqual(1);
+
+    expect(actions[0]).toEqual({ type: "RESET_REGISTER_PROMISE" });
   });
 });

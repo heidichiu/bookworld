@@ -37,3 +37,7 @@ export const registerAction = (user) => async (dispatch) => {
     dispatch({ type: "USER_REGISTER_ERROR" });
   }
 };
+
+export const resetRegisterPromiseAction = () => (dispatch) => {
+  dispatch({ type: "RESET_REGISTER_PROMISE" });
+};
