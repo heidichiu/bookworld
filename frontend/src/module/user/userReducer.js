@@ -1,6 +1,6 @@
 export const USER_INITIAL_STATE = {
   token: window.localStorage.getItem("bookworld-token"),
-  user: null,
+  user: JSON.parse(window.localStorage.getItem("bookworld-user")),
   promise: {
     isPending: false,
     isFulfilled: false,
@@ -16,6 +16,13 @@ export const USER_INITIAL_STATE = {
 
 const userReducer = (state = USER_INITIAL_STATE, action) => {
   switch (action.type) {
+    case "USER_LOGOUT": {
+      return {
+        ...state,
+        user: null,
+      };
+    }
+
     case "USER_LOGIN": {
       return {
         ...state,

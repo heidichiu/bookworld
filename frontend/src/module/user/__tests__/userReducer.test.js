@@ -46,4 +46,34 @@ describe("User Reducer", () => {
       },
     });
   });
+
+  it("should return new state for user logout action", () => {
+    const loginState = {
+      token: "token",
+      user: {
+        id: "uuid",
+        name: "name",
+        email: "email@email.com",
+      },
+      promise: {
+        isPending: false,
+        isFulfilled: false,
+        isErrorOccured: false,
+      },
+      registerPromise: {
+        isPending: false,
+        isFulfilled: false,
+        isErrorOccured: false,
+      },
+      userRegistered: null,
+    };
+    const newState = userReducer(loginState, {
+      type: "USER_LOGOUT",
+    });
+
+    expect(newState).toEqual({
+      ...loginState,
+      user: null,
+    });
+  });
 });

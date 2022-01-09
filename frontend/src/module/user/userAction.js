@@ -7,6 +7,7 @@ export const loginAction = (email, password) => async (dispatch) => {
     const response = await login(email, password);
     // save jwt token inside local storage
     window.localStorage.setItem("bookworld-token", response.data.token);
+    window.localStorage.setItem("bookworld-user", JSON.stringify(response.data.user));
     // dispatch action
     dispatch({
       type: "USER_LOGIN",
@@ -16,6 +17,10 @@ export const loginAction = (email, password) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: "USER_ERROR" });
   }
+};
+
+export const logoutAction = () => (dispatch) => {
+  dispatch({ type: "USER_LOGOUT" });
 };
 
 export const registerAction = (user) => async (dispatch) => {

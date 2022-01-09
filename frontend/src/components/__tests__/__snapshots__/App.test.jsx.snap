@@ -12,10 +12,10 @@ exports[`App component should render app without error 1`] = `
         class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed MuiPaper-elevation4"
       >
         <div
-          class="MuiToolbar-root MuiToolbar-dense MuiToolbar-gutters"
+          class="MuiToolbar-root MuiToolbar-dense makeStyles-flex-3 MuiToolbar-gutters"
         >
           <h6
-            class="MuiTypography-root MuiTypography-h6 MuiTypography-colorInherit"
+            class="MuiTypography-root makeStyles-leftCorner-4 MuiTypography-h6 MuiTypography-colorInherit"
           >
             Book World
           </h6>
@@ -23,17 +23,17 @@ exports[`App component should render app without error 1`] = `
       </header>
     </div>
     <div
-      class="MuiBox-root MuiBox-root-3"
+      class="MuiBox-root MuiBox-root-7"
     >
       <form
         autocomplete="off"
         novalidate=""
       >
         <div
-          class="MuiBox-root MuiBox-root-22 makeStyles-wrapper-19"
+          class="MuiBox-root MuiBox-root-26 makeStyles-wrapper-23"
         >
           <div
-            class="MuiPaper-root makeStyles-paper-20 MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root makeStyles-paper-24 MuiPaper-elevation1 MuiPaper-rounded"
           >
             <h4
               class="MuiTypography-root MuiTypography-h4"
@@ -41,7 +41,7 @@ exports[`App component should render app without error 1`] = `
               Login
             </h4>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-topMargin-21"
+              class="MuiFormControl-root MuiTextField-root makeStyles-topMargin-25"
               data-testid="email-testid"
             >
               <label
@@ -66,10 +66,10 @@ exports[`App component should render app without error 1`] = `
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-14 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-18 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-16"
+                    class="PrivateNotchedOutline-legendLabelled-20"
                   >
                     <span>
                       Enter email address
@@ -79,7 +79,7 @@ exports[`App component should render app without error 1`] = `
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root makeStyles-topMargin-21"
+              class="MuiFormControl-root MuiTextField-root makeStyles-topMargin-25"
               data-testid="password-testid"
             >
               <label
@@ -104,10 +104,10 @@ exports[`App component should render app without error 1`] = `
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-14 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-18 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-16"
+                    class="PrivateNotchedOutline-legendLabelled-20"
                   >
                     <span>
                       Enter password
@@ -117,7 +117,7 @@ exports[`App component should render app without error 1`] = `
               </div>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-topMargin-21 MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-topMargin-25 MuiButton-containedPrimary"
               tabindex="0"
               type="submit"
             >
@@ -131,7 +131,7 @@ exports[`App component should render app without error 1`] = `
               />
             </button>
             <button
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-topMargin-21 MuiLink-button MuiTypography-body2 MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover makeStyles-topMargin-25 MuiLink-button MuiTypography-body2 MuiTypography-colorPrimary"
             >
               Register
             </button>
