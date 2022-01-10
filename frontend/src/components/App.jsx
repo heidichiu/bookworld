@@ -6,6 +6,7 @@ import { SnackbarProvider } from "notistack";
 import Auth from "./Auth";
 import Register from "./user/Register";
 import SingleBook from "./book/SingleBook";
+import BookReviewForm from "./book/BookReviewForm";
 
 const App = () => {
   return (
@@ -19,8 +20,11 @@ const App = () => {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/books/:bookId">
+            <Route exact path="/books/:bookId">
               <SingleBook />
+            </Route>
+            <Route exact path="/books/:bookId/reviews">
+              <BookReviewForm />
             </Route>
             <Route exact path="/">
               <Auth>

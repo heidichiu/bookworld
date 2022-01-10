@@ -10,7 +10,7 @@ import { getBookSelector, getSingleBookPromiseSelector } from "../../module/book
 const styles = makeStyles(() =>
   createStyles({
     wrapper: {
-      margin: "80px 50px 50px 50px",
+      margin: "80px 200px 50px 200px",
     },
     loader: {
       display: "flex",
