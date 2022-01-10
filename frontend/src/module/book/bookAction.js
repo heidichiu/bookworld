@@ -1,4 +1,4 @@
-import { getBooksService, getBooksByTitleService, getBookService } from "./bookService";
+import { getBooksService, getBooksByTitleService, getBookService, postBookReviewService } from "./bookService";
 
 export const getBooksByTitleAction = (title) => async (dispatch) => {
   try {
@@ -38,5 +38,16 @@ export const getBookAction = (bookId) => async (dispatch) => {
     dispatch({ type: "BOOK_FULFILLED" });
   } catch (error) {
     dispatch({ type: "BOOK_ERROR" });
+  }
+};
+
+export const postBookReviewAction = (bookId, bookReview) => async (dispatch) => {
+  try {
+    dispatch({ type: "POST_BOOK_REVIEW_PENDING" });
+
+    const response = await postBookReviewService(bookId, bookReview);
+    dispatch({ type: "POST_BOOK_REVIEW_FULFILLED" });
+  } catch (error) {
+    dispatch({ type: "POST_BOOK_REVIEW_ERROR" });
   }
 };

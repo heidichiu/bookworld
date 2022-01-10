@@ -11,6 +11,11 @@ export const INITIL_BOOK_REDUCER_STATE = {
     isFulfilled: false,
     isErrorOccured: false,
   },
+  postBookReviewPromise: {
+    isPending: false,
+    isFulfilled: false,
+    isErrorOccured: false,
+  },
 };
 
 const bookReducer = (state = INITIL_BOOK_REDUCER_STATE, action) => {
@@ -75,6 +80,27 @@ const bookReducer = (state = INITIL_BOOK_REDUCER_STATE, action) => {
       return {
         ...state,
         promise: { isPending: false, isFulfilled: true, isErrorOccured: false },
+      };
+    }
+
+    case "POST_BOOK_REVIEW_PENDING": {
+      return {
+        ...state,
+        postBookReviewPromise: { isPending: true, isFulfilled: false, isErrorOccured: false },
+      };
+    }
+
+    case "POST_BOOK_REVIEW_ERROR": {
+      return {
+        ...state,
+        postBookReviewPromise: { isPending: false, isFulfilled: false, isErrorOccured: true },
+      };
+    }
+
+    case "POST_BOOK_REVIEW_FULFILLED": {
+      return {
+        ...state,
+        postBookReviewPromise: { isPending: false, isFulfilled: true, isErrorOccured: false },
       };
     }
 

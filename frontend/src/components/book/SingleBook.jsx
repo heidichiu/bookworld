@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { getBookAction } from "../../module/book/bookAction";
 import { getBookSelector, getSingleBookPromiseSelector } from "../../module/book/bookSelector";
+import BookReview from "./BookReview";
 
 const styles = makeStyles(() =>
   createStyles({
@@ -40,7 +41,7 @@ const SingleBook = () => {
   }, [dispatch, bookId]);
 
   const handleClick = (e) => {
-    history.push(`books/${bookId}/reviews`);
+    history.push(`/reviews`);
   };
 
   return (
@@ -70,6 +71,9 @@ const SingleBook = () => {
                   No review yet. Be the first one to post a review!
                 </Typography>
               )}
+              {book?.bookReviews.map((r) => (
+                <BookReview review={r} key={r.id} />
+              ))}
             </Paper>
           </Box>
         </Box>

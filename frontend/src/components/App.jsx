@@ -23,7 +23,7 @@ const App = () => {
             <Route exact path="/books/:bookId">
               <SingleBook />
             </Route>
-            <Route exact path="/books/:bookId/reviews">
+            <Route exact path="/reviews">
               <BookReviewForm />
             </Route>
             <Route exact path="/">
