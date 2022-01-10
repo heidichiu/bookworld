@@ -1,14 +1,15 @@
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![API Build](https://github.com/heidichiu/bookworld/actions/workflows/deploy-api.yml/badge.svg)
 ![Frontend Build](https://github.com/heidichiu/bookworld/actions/workflows/deploy-frontend.yml/badge.svg)
+
+Book World is a website where people can share their reviews for different books!
 
 [View live here](https://bookworld-client.herokuapp.com/)
 
 
 # Motivation 🔥
 
-* Practicing Test-driven Development
+* Practicing writing unit tests and integration tests for Spring Web Application and React
 * Implementing CI/CD to build, test and deploy automatically
 
 # Quality ✨
