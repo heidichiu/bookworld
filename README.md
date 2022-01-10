@@ -42,6 +42,7 @@ Book World is a website where people can share their reviews for different books
 * Gradle version 7+
 
 ```bash
+cd api
 ./gradlew bootRun
 
 ```
@@ -58,9 +59,11 @@ React app is available at `http://localhost:3000`
 ## Testing
 Run Java tests and coverage
 ```bash
+cd api
 ./gradlew check
 ```
 Run Jest tests and coverage
 ```bash
+cd frontend
 npm run test:nowatch
 ```
